@@ -1,4 +1,4 @@
-package services;
+package br.edu.ifma.acad.services;
 
 import br.edu.ifma.acad.models.Aluguel;
 import br.edu.ifma.acad.repositories.AluguelRepository;

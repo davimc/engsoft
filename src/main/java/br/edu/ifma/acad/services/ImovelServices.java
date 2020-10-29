@@ -1,4 +1,4 @@
-package services;
+package br.edu.ifma.acad.services;
 
 import br.edu.ifma.acad.models.Imovel;
 import br.edu.ifma.acad.repositories.ImovelRepository;
