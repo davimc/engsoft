@@ -4,6 +4,7 @@ import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Locacao {
@@ -14,18 +15,20 @@ public class Locacao {
     private Imovel imovel;
     @ManyToOne
     private Cliente cliente;
+    @OneToMany
+    private List<Aluguel> alugueis;
 
-    private double aluguel;
+    private double valorAluguel;
     private double porcentualMulta;
     private LocalDate dataVencimento, dataInicio, dataFim;
     private boolean isAtivo;
     private String obs="";
 
 
-    public Locacao(Imovel imovel, Cliente cliente, double aluguel, double porcentualMulta, LocalDate dataVencimento, LocalDate dataInicio, LocalDate dataFim, boolean isAtivo, String obs) {
+    public Locacao(Imovel imovel, Cliente cliente, double valorAluguel, double porcentualMulta, LocalDate dataVencimento, LocalDate dataInicio, LocalDate dataFim, boolean isAtivo, String obs) {
         this.imovel = imovel;
         this.cliente = cliente;
-        this.aluguel = aluguel;
+        this.valorAluguel = valorAluguel;
         this.porcentualMulta = porcentualMulta;
         this.dataVencimento = dataVencimento;
         this.dataInicio = dataInicio;
@@ -55,11 +58,11 @@ public class Locacao {
     }
 
     public double getAluguel() {
-        return aluguel;
+        return valorAluguel;
     }
 
     public void setAluguel(double aluguel) {
-        this.aluguel = aluguel;
+        this.valorAluguel = aluguel;
     }
 
     public double getPorcentualMulta() {

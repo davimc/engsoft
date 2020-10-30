@@ -1,15 +1,17 @@
 package br.edu.ifma.acad.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Imovel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="imovel_locacao")
+    private List<Locacao> locacoes;
+
     private String tipoImovel;
     private Endereco endereco;
     private double metragem;

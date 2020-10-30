@@ -1,9 +1,6 @@
 package br.edu.ifma.acad.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -11,6 +8,8 @@ public class Aluguel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @ManyToOne
+    private Locacao locacao;
     private LocalDate dataVencimento, dataPagamento;
     private double valorPago;
     private String obs="";
