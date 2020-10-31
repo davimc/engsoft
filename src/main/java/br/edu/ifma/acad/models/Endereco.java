@@ -1,5 +1,7 @@
 package br.edu.ifma.acad.models;
 
+import br.edu.ifma.acad.models.Imovel;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,20 +10,35 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @OneToOne
-    private Endereco endereco;
-    private String  bairro, cep;
-    public Endereco(Endereco endereco, String bairro, String cep) {
+    @JoinColumn(name="imovel_id")
+    private Imovel imovel;
+    private String endereco,numero, bairro, cep;
+
+    public Endereco(String endereco, String numero, String bairro, String cep) {
         this.endereco = endereco;
+        this.numero = numero;
         this.bairro = bairro;
         this.cep = cep;
     }
 
-    public Endereco getEndereco() {
+    public long getId() {
+        return id;
+    }
+
+    public String getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public String getBairro() {

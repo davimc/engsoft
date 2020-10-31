@@ -9,6 +9,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     @OneToMany(cascade=CascadeType.ALL)
     @JoinTable(name="cliente_locacao")
     private List<Locacao> locacoes;
