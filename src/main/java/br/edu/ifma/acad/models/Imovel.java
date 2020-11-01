@@ -9,12 +9,14 @@ public class Imovel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @OneToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="imovel_locacao")
+    @JoinColumn(name="locacao_id")
     private List<Locacao> locacoes;
 
     @Column(name="tipo")
     private Tipo tipoImovel;
 
+    @OneToOne
+    @JoinColumn(name="endereco_id")
     private Endereco endereco;
     private double metragem;
     private int banheiro, suites, garagem, dormitorio;

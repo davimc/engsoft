@@ -9,13 +9,12 @@ public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @OneToOne
-    @JoinColumn(name="imovel_id")
+    @OneToOne(mappedBy = "endereco")
     private Imovel imovel;
-    private String endereco,numero, bairro, cep;
+    private String rua,numero, bairro, cep;
 
-    public Endereco(String endereco, String numero, String bairro, String cep) {
-        this.endereco = endereco;
+    public Endereco(String rua, String numero, String bairro, String cep) {
+        this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
         this.cep = cep;
@@ -25,12 +24,12 @@ public class Endereco {
         return id;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getRua() {
+        return rua;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
     public String getNumero() {
