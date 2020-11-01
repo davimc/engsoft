@@ -20,21 +20,14 @@ public class Locacao {
 
     private double valorAluguel;
     private double porcentualMulta;
-    private LocalDate dataVencimento, dataInicio, dataFim;
-    private boolean isAtivo;
+    private LocalDate dataVencimento, dataInicio=LocalDate.now(), dataFim;
+    private boolean isAtivo=true;
     private String obs="";
 
 
-    public Locacao(Imovel imovel, Cliente cliente, double valorAluguel, double porcentualMulta, LocalDate dataVencimento, LocalDate dataInicio, LocalDate dataFim, boolean isAtivo, String obs) {
-        this.imovel = imovel;
-        this.cliente = cliente;
-        this.valorAluguel = valorAluguel;
-        this.porcentualMulta = porcentualMulta;
-        this.dataVencimento = dataVencimento;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
-        this.isAtivo = isAtivo;
-        this.obs = obs;
+    public Locacao() {
+        isAtivo = true;
+
     }
 
     public long getId() {

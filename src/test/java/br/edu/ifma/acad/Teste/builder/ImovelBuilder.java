@@ -1,4 +1,4 @@
-package Teste.builder;
+package br.edu.ifma.acad.Teste.builder;
 
 import br.edu.ifma.acad.models.Endereco;
 import br.edu.ifma.acad.models.Imovel;
@@ -33,15 +33,8 @@ public class ImovelBuilder {
     public ImovelBuilder comEndereco(String endereco, String numero, String bairro, String cep){
         this.imovel.setEndereco(new Endereco(endereco,numero,bairro,cep));
         return this;
-    }public ImovelBuilder com(Tipo tipo){
-        this.imovel.setTipoImovel(tipo);
-        return this;
-    }public ImovelBuilder comTipo(Tipo tipo){
-        this.imovel.setTipoImovel(tipo);
-        return this;
-    }public ImovelBuilder comTipo(Tipo tipo){
-        this.imovel.setTipoImovel(tipo);
-        return this;
     }
-
+    public Imovel constroi(){
+        return imovel;
+    }
 }
